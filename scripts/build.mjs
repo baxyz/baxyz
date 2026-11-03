@@ -179,7 +179,25 @@ const flagships = [
     tagline: 'Finding and resolving the frustration points of digital products.',
     stack: ['Qwik', 'TypeScript'],
   },
+  {
+    slug: 'folioscope',
+    title: 'Folioscope',
+    drawing: 'BAXYZ-150',
+    status: 'early',
+    tagline: 'A web component that plays .fig, .sketch, .xd and .penpot prototypes in the browser.',
+    stack: ['Rust', 'TypeScript', 'WebAssembly'],
+  },
 ];
+
+/** Sixth card: not a project, the way in for contributors. It completes the 2-column grid. */
+const contribute = {
+  slug: 'contribute',
+  path: 'contribute',
+  title: 'Contribute',
+  drawing: 'BAXYZ-250',
+  tagline: 'Open issues labelled good first issue or help wanted, across every organisation, on one page.',
+  stack: ['good first issue', 'help wanted'],
+};
 
 const statusLabel = { stable: 'STABLE', active: 'ACTIVE DEV', early: 'EARLY STAGE', dev: 'IN DEVELOPMENT' };
 
@@ -194,11 +212,13 @@ function card(t, f, id) {
   b += `<text x="${L}" y="${s.y + 22}" font-family="${MONO}" font-size="10" letter-spacing="1.5" fill="${t.ink2}">${f.drawing}</text>`;
   b += `<text x="${L}" y="${s.y + 52}" font-family="${SANS}" font-size="26" font-weight="700" fill="${t.ink}">${esc(f.title)}</text>`;
 
-  const color = f.status === 'stable' ? t.ok : f.status === 'early' ? t.red : t.ink2;
-  const label = statusLabel[f.status];
-  const pw = label.length * 7 + 18;
-  b += `<rect x="${R - pw}" y="${s.y + 12}" width="${pw}" height="20" rx="10" fill="none" stroke="${color}" stroke-width="1.2"${f.status === 'dev' ? ' stroke-dasharray="3 3"' : ''}/>`;
-  b += `<text x="${R - pw / 2}" y="${s.y + 26}" text-anchor="middle" font-family="${MONO}" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${color}">${label}</text>`;
+  if (f.status) {
+    const color = f.status === 'stable' ? t.ok : f.status === 'early' ? t.red : t.ink2;
+    const label = statusLabel[f.status];
+    const pw = label.length * 7 + 18;
+    b += `<rect x="${R - pw}" y="${s.y + 12}" width="${pw}" height="20" rx="10" fill="none" stroke="${color}" stroke-width="1.2"${f.status === 'dev' ? ' stroke-dasharray="3 3"' : ''}/>`;
+    b += `<text x="${R - pw / 2}" y="${s.y + 26}" text-anchor="middle" font-family="${MONO}" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${color}">${label}</text>`;
+  }
 
   wrap(f.tagline, 52).forEach((line, i) => {
     b += `<text x="${L}" y="${s.y + 80 + i * 19}" font-family="${MONO}" font-size="13" fill="${t.ink}">${esc(line)}</text>`;
@@ -213,7 +233,7 @@ function card(t, f, id) {
   }
 
   b += `<line x1="${L}" y1="${s.y + s.h - 28}" x2="${R}" y2="${s.y + s.h - 28}" stroke="${t.ink2}" stroke-width="1" stroke-dasharray="2 3"/>`;
-  b += `<text x="${L}" y="${s.y + s.h - 10}" font-family="${MONO}" font-size="12" fill="${t.ink2}">baxyz.dev/projects/${f.slug}</text>`;
+  b += `<text x="${L}" y="${s.y + s.h - 10}" font-family="${MONO}" font-size="12" fill="${t.ink2}">baxyz.dev/${f.path ?? `projects/${f.slug}`}</text>`;
   b += `<text x="${R}" y="${s.y + s.h - 10}" text-anchor="end" font-family="${MONO}" font-size="12" font-weight="700" fill="${t.red}">Open the sheet →</text>`;
 
   return svg(W, H, `${f.title} — ${f.tagline} Open the sheet on baxyz.dev`, b);
@@ -248,6 +268,6 @@ const write = (name, content) => writeFileSync(join(out, name), content);
 for (const [mode, t] of Object.entries(themes)) {
   write(`header-${mode}.svg`, header(t, `g-h-${mode}`));
   write(`footer-${mode}.svg`, footer(t, `g-f-${mode}`));
-  for (const f of flagships) write(`card-${f.slug}-${mode}.svg`, card(t, f, `g-${f.slug}-${mode}`));
+  for (const f of [...flagships, contribute]) write(`card-${f.slug}-${mode}.svg`, card(t, f, `g-${f.slug}-${mode}`));
 }
 console.log(`assets written to ${out}`);

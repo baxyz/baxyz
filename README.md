@@ -16,7 +16,7 @@ it is just starting, and **I am looking for collaborators**.
 
 ### `2.0` Projects
 
-The four projects where I am looking for collaborators. Each one has its own sheet on baxyz.dev, with what it needs most.
+The five projects where I am looking for collaborators. Each one has its own sheet on baxyz.dev, with what it needs most.
 
 <p>
   <a href="https://baxyz.dev/projects/helpers4"><picture>
@@ -38,6 +38,16 @@ The four projects where I am looking for collaborators. Each one has its own she
     <source media="(prefers-color-scheme: dark)" srcset="assets/card-feature-today-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/card-feature-today-light.svg">
     <img alt="Feature Today: finding and resolving the frustration points of digital products. In development." src="assets/card-feature-today-dark.svg" width="49%">
+  </picture></a>
+  <a href="https://baxyz.dev/projects/folioscope"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-folioscope-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/card-folioscope-light.svg">
+    <img alt="Folioscope: a web component that plays .fig, .sketch, .xd and .penpot prototypes in the browser. Early stage." src="assets/card-folioscope-dark.svg" width="49%">
+  </picture></a>
+  <a href="https://baxyz.dev/contribute"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/card-contribute-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/card-contribute-light.svg">
+    <img alt="Contribute: open issues labelled good first issue or help wanted, across every organisation, on one page." src="assets/card-contribute-dark.svg" width="49%">
   </picture></a>
 </p>
 

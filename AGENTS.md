@@ -19,7 +19,7 @@ Defined in `scopes.json`: `profile`, `assets`, `docs`.
 
 ```text
 README.md            ← the profile: numbered sections, each linking to baxyz.dev
-assets/*.svg         ← generated; dark and light variant of every visual (header, 4 project cards, footer)
+assets/*.svg         ← generated; dark and light variant of every visual (header, 5 project cards, a Contribute card, footer)
 scripts/build.mjs    ← generates assets/ (no dependencies): node scripts/build.mjs
 ```
 
