@@ -1,5 +1,8 @@
 [
   "profile",
   "assets",
-  "docs"
+  "docs",
+  "ai",
+  "ci",
+  "deps"
 ]
