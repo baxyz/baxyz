@@ -13,7 +13,7 @@ AGPL-3.0-only, the workspace default.
 
 ## Commit Scopes
 
-Defined in `scopes.json`: `profile`, `assets`, `docs`.
+Defined in `scopes.json`: `profile`, `assets`, `docs`, `ai`, `ci`, `deps`.
 
 ## Structure
 
